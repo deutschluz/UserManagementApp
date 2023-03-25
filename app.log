@@ -1,0 +1,4 @@
+GET / 304 - - 27.566 ms
+GET /css/main.css 304 - - 2.746 ms
+GET /about 404 350 - 13.284 ms
+GET /css/main.css 304 - - 2.199 ms

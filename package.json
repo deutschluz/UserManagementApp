@@ -1,0 +1,23 @@
+{
+  "name": "usermanagementapp",
+  "version": "1.0.0",
+  "description": "- this is the repo for my user management app\r     - Minimal Viable Product: app can be used to\r         manage users via the usual \"CRUD\" ops.\r     - Extra: Approval Processes for: paid time-off; overtime;",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.4",
+    "morgan": "^1.10.0",
+    "pg": "^8.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
