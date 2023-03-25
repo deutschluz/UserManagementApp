@@ -11,6 +11,7 @@ const LR = require("livereload");
 const connLR = require("connect-livereload");
 let logStream = fs.createWriteStream("app.log");
 const port = process.env.PORT;
+const routes = require("./server/routes/user_");
 
 //setup live reload for the browser
 const LRServer = LR.createServer();
@@ -28,7 +29,7 @@ app.use(connLR());
 
 // setup the logger
 app.use(
-  morgan("tiny", {
+  morgan("dev", {
     stream: logStream,
   })
 );
@@ -48,20 +49,9 @@ app.engine(
   })
 );
 app.set("view engine", ".hbs");
-app.get("/", (req, res) => {
-  const data = { pageTitle: "My Website", heading: "Welcome!" };
-  res.render("home", data);
-});
 
-// Define a middleware function that handles 404 errors
-function handle404Error(req, res, next) {
-  res.status(404).render("404", {
-    heading: "404 - Page Not Found",
-  });
-}
-
-// Register the middleware function
-app.use(handle404Error);
+//register router with server
+app.use("/", routes);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);

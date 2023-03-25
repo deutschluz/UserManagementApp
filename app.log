@@ -1,2 +1,4 @@
-GET / 200 4367 - 28.406 ms
-GET /css/main.css 304 - - 3.936 ms
+[0mGET / [36m304[0m 22.669 ms - -[0m
+[0mGET /css/main.css [36m304[0m 4.180 ms - -[0m
+[0mGET / [36m304[0m 12.655 ms - -[0m
+[0mGET /css/main.css [36m304[0m 6.756 ms - -[0m
