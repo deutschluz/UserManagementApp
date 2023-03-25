@@ -7,10 +7,25 @@ const bodyParser = require("body-parser");
 const db = require("./queries");
 const morgan = require("morgan");
 const Writable = require("stream").Writable;
-
+const LR = require("livereload");
+const connLR = require("connect-livereload");
 let logStream = fs.createWriteStream("app.log");
 const port = process.env.PORT;
+
+//setup live reload for the browser
+const LRServer = LR.createServer();
+LRServer.server.once("connection", () => {
+  setTimeout(() => {
+    LRServer.refresh("/");
+  }, 100);
+});
+
+//start server
 const app = express();
+
+//register reload function
+app.use(connLR());
+
 // setup the logger
 app.use(
   morgan("tiny", {
